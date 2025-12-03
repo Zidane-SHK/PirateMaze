@@ -1,7 +1,7 @@
 from PIL import Image
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # pip install
 
-image_path = r'C:\Users\dell\Desktop\uni\ship.jpg'
+image_path = r'/Users/zidanekhan/PirateMaze/Game/Assets/maze.png'
 
 def pick_coordinates(image_path):
     """Interactive coordinate picker"""
@@ -28,10 +28,10 @@ def pick_coordinates(image_path):
     return coords
 
 # Usage
-coordinates = pick_coordinates('C:\\Users\\dell\\Desktop\\uni\\ship.jpg')
+coordinates = pick_coordinates('/Users/zidanekhan/PirateMaze/Game/main.py')
 
 # Print in config.py format
-print("\nCOORDS = {")
+print("\nCOORDS = {coords}")
 for node, (x, y) in sorted(coordinates.items()):
     print(f"    '{node}': ({x}, {y}),")
 print("}")

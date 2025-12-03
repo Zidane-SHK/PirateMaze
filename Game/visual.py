@@ -1,4 +1,4 @@
-import pygame
+import pygame # pip install
 from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Visualizer:
@@ -25,7 +25,7 @@ class Visualizer:
         # 3. Load Background Image
         self.bg_image = None
         try:
-            raw_image = pygame.image.load("maze.jpg")
+            raw_image = pygame.image.load("/Users/zidanekhan/PirateMaze/Game/Assets/maze.png")
             self.bg_image = pygame.transform.scale(raw_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
         except FileNotFoundError:
             print("ERROR: Image not found. Please check filename.")
