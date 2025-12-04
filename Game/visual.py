@@ -1,4 +1,5 @@
-import pygame # pip install
+import pygame
+# pip install
 from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class Visualizer:
@@ -6,7 +7,7 @@ class Visualizer:
         # 1. Initialize Pygame
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("Cannon Challenge - 4 Color Visualization")
+        pygame.display.set_caption("Cannon Challenge Visualization")
         
         # 2. Define Colors
         self.WHITE = (255, 255, 255)
@@ -24,11 +25,13 @@ class Visualizer:
         
         # 3. Load Background Image
         self.bg_image = None
+        # IMPORTANT: Update this path to your actual image location
+        image_path = r'/Users/zidanekhan/PirateMaze/Game/Assets/maze.png'
         try:
-            raw_image = pygame.image.load("/Users/zidanekhan/PirateMaze/Game/Assets/maze.png")
+            raw_image = pygame.image.load(image_path)
             self.bg_image = pygame.transform.scale(raw_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
         except FileNotFoundError:
-            print("ERROR: Image not found. Please check filename.")
+            print(f"ERROR: Image not found at {image_path}. Please check filename.")
             self.bg_image = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
             self.bg_image.fill(self.WHITE)
 
@@ -96,3 +99,8 @@ class Visualizer:
             pygame.draw.circle(self.screen, (255, 0, 0), pos, 8, 0)
             # Outline
             pygame.draw.circle(self.screen, (0, 0, 0), pos, 8, 2)
+
+    def save_image(self, filename="saved.png"):
+        """Saves the current screen to a file."""
+        pygame.image.save(self.screen, filename)
+        print(f"Image saved to {filename}")

@@ -8,7 +8,7 @@ def pick_coordinates(image_path):
     img = Image.open(image_path)
     
     # Resize to target dimensions
-    img = img.resize((1000, 1200))
+    img = img.resize((920, 1128))
     
     coords = {}
     
